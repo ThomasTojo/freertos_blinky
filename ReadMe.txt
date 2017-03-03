@@ -1,3 +1,3 @@
 This is a LPCXpresso demo project
 
-freertos blinky project
+freertos blinky project 
