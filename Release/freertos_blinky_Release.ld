@@ -5,7 +5,7 @@
  * Generated linker script file for LPC1857
  * Created from linkscript.ldt by FMCreateLinkLibraries
  * Using Freemarker v2.3.23
- * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 03-Mar-2017 09:12:47
+ * LPCXpresso v8.2.2 [Build 650] [2016-09-09]  on 06-Mar-2017 16:52:52
  */
 
 INCLUDE "freertos_blinky_Release_library.ld"

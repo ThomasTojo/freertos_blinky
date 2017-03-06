@@ -69,7 +69,8 @@ example/src/freertos_blinky.o example/src/freertos_blinky.d: \
  C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/portmacro.h \
  C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/mpu_wrappers.h \
  C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/task.h \
- C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/list.h
+ C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/list.h \
+ C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/queue.h
 
 C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\lpc_board_keil_mcb_1857\inc/board.h:
 
@@ -210,3 +211,5 @@ C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freerto
 C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/task.h:
 
 C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/list.h:
+
+C:\Users\Thomas\Documents\LPCXpresso_8.2.2_650\workspace\freertos_blinky\freertos\inc/queue.h:
