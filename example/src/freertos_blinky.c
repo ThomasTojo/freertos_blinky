@@ -60,6 +60,7 @@ static void prvSetupHardware(void)
 
 /* LED1 toggle thread */
 static void vLEDTask1(void *pvParameters) {
+
 	xQueue1=xQueueGenericCreate(1,sizeof(char),NULL);
 	bool LedState = false;
 	char status = 0;
@@ -70,14 +71,14 @@ static void vLEDTask1(void *pvParameters) {
 		LedState = (bool) !LedState;
 		Board_LED_Set(0, LedState);			//led0 on
 
-		/* About a 500Hz on/off toggle rate */
+		/* About a .5Hz on/off toggle rate */
 		vTaskDelay(configTICK_RATE_HZ /1);
 
 		Board_LED_Set(1, LedState);			//led1 on
 		LedState = (bool) !LedState;
-		Board_LED_Set(0, LedState);			//led1 off
+		Board_LED_Set(0, LedState);			//led0 off
 
-		/* About a 500Hz on/off toggle rate */
+		/* About a .5Hz on/off toggle rate */
 		vTaskDelay(configTICK_RATE_HZ /1);
 
 		LedState = (bool) !LedState;
@@ -93,8 +94,6 @@ static void vLEDTask2(void *pvParameters) {
 	char status = 0;
 
 	while (1) {
-		//Board_LED_Set(1, LedState);
-		//LedState = (bool) !LedState;
 
 		while(!(xQueue1 != 0));
 		xQueueGenericReceive(xQueue1,&(status),(TickType_t)10,0);
@@ -102,13 +101,17 @@ static void vLEDTask2(void *pvParameters) {
 		if(status=='A')
 		{
 			status = 0;
-			Board_LED_Set(5, false);
-			Board_LED_Set(4, true);
-			/* About a 500Hz on/off toggle rate */
-			vTaskDelay(configTICK_RATE_HZ / 10);
-			Board_LED_Set(4, false);
-			Board_LED_Set(5, true);
-			/* About a 500Hz on/off toggle rate */
+			Board_LED_Set(5, LedState);			//led5 off
+			LedState = (bool) !LedState;
+			Board_LED_Set(4, LedState);			//led4 on
+
+			/* About a 5Hz on/off toggle rate */
+			vTaskDelay(configTICK_RATE_HZ /10);
+
+			Board_LED_Set(5, LedState);			//led5 on
+			LedState = (bool) !LedState;
+			Board_LED_Set(4, LedState);			//led4 off
+			/* About a 5Hz on/off toggle rate */
 			vTaskDelay(configTICK_RATE_HZ / 10);
 		}
 }
@@ -118,17 +121,19 @@ static void vLEDTask3(void *pvParameters) {
 	bool LedState = false;
 
 	while (1) {
-		//Board_LED_Set(2, LedState);
-		//LedState = (bool) !LedState;
 
-		Board_LED_Set(3, false);
-		Board_LED_Set(2, true);
-		/* About a 500Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ /2);
-		Board_LED_Set(2, false);
-		Board_LED_Set(3, true);
-		/* About a 500Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ /2);
+		Board_LED_Set(3, LedState);			//led3 off
+		LedState = (bool) !LedState;
+		Board_LED_Set(2, LedState);			//led2 on
+
+		/* About a 20Hz on/off toggle rate */
+		vTaskDelay(configTICK_RATE_HZ /40);
+
+		Board_LED_Set(3, LedState);			//led3 on
+		LedState = (bool) !LedState;
+		Board_LED_Set(20, LedState);			//led2 off
+		/* About a 2Hz on/off toggle rate */
+		vTaskDelay(configTICK_RATE_HZ /40);
 	}
 }
 
@@ -137,17 +142,19 @@ static void vLEDTask4(void *pvParameters) {
 	bool LedState = false;
 
 	while (1) {
-		//Board_LED_Set(3, LedState);
-		//LedState = (bool) !LedState;
 
-		Board_LED_Set(7, false);
-		Board_LED_Set(6, true);
-		/* About a 500Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ / 3);
-		Board_LED_Set(6, false);
-		Board_LED_Set(7, true);
-		/* About a 500Hz on/off toggle rate */
-		vTaskDelay(configTICK_RATE_HZ / 3);
+		Board_LED_Set(7, LedState);			//led7 off
+		LedState = (bool) !LedState;
+		Board_LED_Set(6, LedState);			//led6 on
+
+		/* About a 15Hz on/off toggle rate */
+		vTaskDelay(configTICK_RATE_HZ /30);
+
+		Board_LED_Set(7, LedState);			//led7 on
+		LedState = (bool) !LedState;
+		Board_LED_Set(6, LedState);			//led6 off
+		/* About a 15Hz on/off toggle rate */
+		vTaskDelay(configTICK_RATE_HZ / 30);
 }
 }
 
